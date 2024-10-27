@@ -37,18 +37,23 @@ subprojects {
     }
 
     def determinePatchVersion = {
-        // get the name of the last tag
-        def tagInfo = new ByteArrayOutputStream()
-        exec {
-            commandLine 'git', 'describe', '--tags'
-            standardOutput = tagInfo
-        }
-        tagInfo = tagInfo.toString()
+        try {
+            // get the name of the last tag
+            def tagInfo = new ByteArrayOutputStream()
+            exec {
+                commandLine 'git', 'describe', '--tags'
+                standardOutput = tagInfo
+            }
+            tagInfo = tagInfo.toString().trim()
 
-        if (!tagInfo.contains('-')) {
+            if (!tagInfo.contains('-')) {
+                return 0
+            }
+            return tagInfo.split("-")[1]
+        } catch (Exception ignored) {
+            // Handle the exception and return a default patch version
             return 0
         }
-        return tagInfo.split("-")[1]
     }
 
     project.ext.majorVersion = '5'
