@@ -1,8 +1,5 @@
 package me.lucko.luckperms.minestom.context;
 
-import java.util.HashSet;
-import java.util.Set;
-import java.util.stream.Collectors;
 import me.lucko.luckperms.common.context.ImmutableContextSetImpl;
 import me.lucko.luckperms.minestom.LPMinestomPlugin;
 import me.lucko.luckperms.minestom.context.defaults.DimensionTypeContextProvider;
@@ -16,6 +13,10 @@ import net.minestom.server.event.Event;
 import net.minestom.server.event.EventNode;
 import org.checkerframework.checker.nullness.qual.NonNull;
 import org.jetbrains.annotations.NotNull;
+
+import java.util.HashSet;
+import java.util.Set;
+import java.util.stream.Collectors;
 
 public final class MinestomPlayerCalculator implements ContextCalculator<Player> {
 

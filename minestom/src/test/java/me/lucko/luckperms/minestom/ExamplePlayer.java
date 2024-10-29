@@ -1,7 +1,5 @@
 package me.lucko.luckperms.minestom;
 
-import java.util.UUID;
-import java.util.concurrent.CompletableFuture;
 import net.kyori.adventure.text.Component;
 import net.kyori.adventure.text.minimessage.MiniMessage;
 import net.luckperms.api.LuckPerms;
@@ -19,6 +17,9 @@ import net.minestom.server.permission.PermissionVerifier;
 import org.checkerframework.checker.nullness.qual.NonNull;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
+
+import java.util.UUID;
+import java.util.concurrent.CompletableFuture;
 
 /**
  * An example implementation of permission handling in a Player using LuckPerms.

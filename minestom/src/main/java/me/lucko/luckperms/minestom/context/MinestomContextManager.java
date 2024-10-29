@@ -1,9 +1,6 @@
 package me.lucko.luckperms.minestom.context;
 
 import com.github.benmanes.caffeine.cache.LoadingCache;
-import java.util.Objects;
-import java.util.UUID;
-import java.util.concurrent.TimeUnit;
 import me.lucko.luckperms.common.cache.LoadingMap;
 import me.lucko.luckperms.common.config.ConfigKeys;
 import me.lucko.luckperms.common.context.manager.ContextManager;
@@ -14,6 +11,10 @@ import me.lucko.luckperms.common.util.CaffeineFactory;
 import net.luckperms.api.context.ImmutableContextSet;
 import net.luckperms.api.query.QueryOptions;
 import net.minestom.server.entity.Player;
+
+import java.util.Objects;
+import java.util.UUID;
+import java.util.concurrent.TimeUnit;
 
 public final class MinestomContextManager extends ContextManager<Player, Player> {
 

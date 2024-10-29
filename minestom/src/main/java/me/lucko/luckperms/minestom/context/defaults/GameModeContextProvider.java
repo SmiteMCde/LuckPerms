@@ -1,10 +1,5 @@
 package me.lucko.luckperms.minestom.context.defaults;
 
-import java.util.Arrays;
-import java.util.Optional;
-import java.util.Set;
-import java.util.function.Consumer;
-import java.util.stream.Collectors;
 import me.lucko.luckperms.common.util.EnumNamer;
 import me.lucko.luckperms.minestom.context.ContextProvider;
 import net.luckperms.api.context.DefaultContextKeys;
@@ -15,6 +10,12 @@ import net.minestom.server.event.EventNode;
 import net.minestom.server.event.player.PlayerGameModeChangeEvent;
 import org.checkerframework.checker.nullness.qual.NonNull;
 import org.jetbrains.annotations.NotNull;
+
+import java.util.Arrays;
+import java.util.Optional;
+import java.util.Set;
+import java.util.function.Consumer;
+import java.util.stream.Collectors;
 
 public final class GameModeContextProvider implements ContextProvider {
 

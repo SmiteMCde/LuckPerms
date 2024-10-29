@@ -1,6 +1,5 @@
 package me.lucko.luckperms.minestom;
 
-import java.util.UUID;
 import me.lucko.luckperms.common.locale.TranslationManager;
 import me.lucko.luckperms.common.sender.Sender;
 import me.lucko.luckperms.common.sender.SenderFactory;
@@ -10,6 +9,8 @@ import net.minestom.server.MinecraftServer;
 import net.minestom.server.command.CommandSender;
 import net.minestom.server.command.ConsoleSender;
 import net.minestom.server.entity.Player;
+
+import java.util.UUID;
 
 public final class MinestomSenderFactory extends SenderFactory<LPMinestomPlugin, CommandSender> {
 

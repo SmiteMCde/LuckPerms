@@ -1,13 +1,5 @@
 package me.lucko.luckperms.minestom;
 
-import java.nio.file.Path;
-import java.time.Instant;
-import java.util.Collection;
-import java.util.Optional;
-import java.util.Set;
-import java.util.UUID;
-import java.util.concurrent.CountDownLatch;
-import java.util.function.Function;
 import me.lucko.luckperms.common.config.generic.adapter.ConfigurationAdapter;
 import me.lucko.luckperms.common.plugin.bootstrap.LuckPermsBootstrap;
 import me.lucko.luckperms.common.plugin.classpath.ClassPathAppender;
@@ -22,6 +14,15 @@ import net.minestom.server.entity.Player;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 import org.slf4j.Logger;
+
+import java.nio.file.Path;
+import java.time.Instant;
+import java.util.Collection;
+import java.util.Optional;
+import java.util.Set;
+import java.util.UUID;
+import java.util.concurrent.CountDownLatch;
+import java.util.function.Function;
 
 public final class LPMinestomBootstrap implements LuckPermsBootstrap {
 

@@ -1,11 +1,5 @@
 package me.lucko.luckperms.minestom;
 
-import java.nio.file.Path;
-import java.util.Arrays;
-import java.util.HashSet;
-import java.util.Set;
-import java.util.function.Consumer;
-import java.util.function.Function;
 import me.lucko.luckperms.common.config.generic.adapter.ConfigurationAdapter;
 import me.lucko.luckperms.common.config.generic.adapter.EnvironmentVariableConfigAdapter;
 import me.lucko.luckperms.minestom.context.ContextProvider;
@@ -16,6 +10,13 @@ import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+
+import java.nio.file.Path;
+import java.util.Arrays;
+import java.util.HashSet;
+import java.util.Set;
+import java.util.function.Consumer;
+import java.util.function.Function;
 
 @SuppressWarnings("unused")
 public final class LuckPermsMinestom {

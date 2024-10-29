@@ -1,9 +1,10 @@
 package me.lucko.luckperms.minestom.dependencies;
 
-import java.util.Set;
 import me.lucko.luckperms.common.dependencies.Dependency;
 import me.lucko.luckperms.common.dependencies.DependencyManager;
 import me.lucko.luckperms.common.storage.StorageType;
+
+import java.util.Set;
 
 public final class NoopDependencyManager implements DependencyManager {
 

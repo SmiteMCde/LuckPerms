@@ -1,8 +1,5 @@
 package me.lucko.luckperms.minestom.context.defaults;
 
-import java.util.Optional;
-import java.util.Set;
-import java.util.function.Consumer;
 import me.lucko.luckperms.minestom.context.ContextProvider;
 import net.luckperms.api.context.DefaultContextKeys;
 import net.minestom.server.entity.Player;
@@ -12,6 +9,10 @@ import net.minestom.server.event.player.PlayerSpawnEvent;
 import net.minestom.server.instance.Instance;
 import org.checkerframework.checker.nullness.qual.NonNull;
 import org.jetbrains.annotations.NotNull;
+
+import java.util.Optional;
+import java.util.Set;
+import java.util.function.Consumer;
 
 public final class DimensionTypeContextProvider implements ContextProvider {
 

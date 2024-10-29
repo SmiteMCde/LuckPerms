@@ -1,6 +1,5 @@
 package me.lucko.luckperms.minestom;
 
-import java.util.List;
 import me.lucko.luckperms.common.command.CommandManager;
 import me.lucko.luckperms.common.command.utils.ArgumentTokenizer;
 import me.lucko.luckperms.common.sender.Sender;
@@ -9,6 +8,8 @@ import net.minestom.server.command.builder.Command;
 import net.minestom.server.command.builder.arguments.ArgumentType;
 import net.minestom.server.command.builder.suggestion.SuggestionEntry;
 import org.jetbrains.annotations.NotNull;
+
+import java.util.List;
 
 @SuppressWarnings("unused")
 public final class MinestomCommandExecutor extends CommandManager {

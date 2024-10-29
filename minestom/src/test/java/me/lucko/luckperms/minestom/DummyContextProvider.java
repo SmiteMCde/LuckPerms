@@ -1,9 +1,10 @@
 package me.lucko.luckperms.minestom;
 
-import java.util.Optional;
 import me.lucko.luckperms.minestom.context.ContextProvider;
 import net.minestom.server.entity.Player;
 import org.jetbrains.annotations.NotNull;
+
+import java.util.Optional;
 
 public final class DummyContextProvider implements ContextProvider {
 

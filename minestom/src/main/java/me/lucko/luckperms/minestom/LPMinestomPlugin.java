@@ -1,11 +1,5 @@
 package me.lucko.luckperms.minestom;
 
-import java.nio.file.Path;
-import java.util.Collection;
-import java.util.Optional;
-import java.util.Set;
-import java.util.function.Function;
-import java.util.stream.Stream;
 import me.lucko.luckperms.common.api.LuckPermsApiProvider;
 import me.lucko.luckperms.common.calculator.CalculatorFactory;
 import me.lucko.luckperms.common.command.CommandManager;
@@ -44,6 +38,13 @@ import net.minestom.server.event.Event;
 import net.minestom.server.event.EventNode;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
+
+import java.nio.file.Path;
+import java.util.Collection;
+import java.util.Optional;
+import java.util.Set;
+import java.util.function.Function;
+import java.util.stream.Stream;
 
 public final class LPMinestomPlugin extends AbstractLuckPermsPlugin {
 

@@ -1,8 +1,5 @@
 package me.lucko.luckperms.minestom;
 
-import java.io.IOException;
-import java.nio.file.Files;
-import java.nio.file.Path;
 import me.lucko.luckperms.common.config.generic.adapter.EnvironmentVariableConfigAdapter;
 import me.lucko.luckperms.common.config.generic.adapter.MultiConfigurationAdapter;
 import net.kyori.adventure.text.Component;
@@ -26,6 +23,10 @@ import net.minestom.server.extras.lan.OpenToLAN;
 import net.minestom.server.instance.InstanceContainer;
 import net.minestom.server.instance.block.Block;
 import net.minestom.server.network.ConnectionManager;
+
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
 
 public final class MinestomServer {
 

@@ -1,6 +1,5 @@
 package me.lucko.luckperms.minestom.listeners;
 
-import java.util.concurrent.TimeUnit;
 import me.lucko.luckperms.common.config.ConfigKeys;
 import me.lucko.luckperms.common.locale.Message;
 import me.lucko.luckperms.common.locale.TranslationManager;
@@ -15,6 +14,8 @@ import net.minestom.server.event.EventNode;
 import net.minestom.server.event.player.AsyncPlayerConfigurationEvent;
 import net.minestom.server.event.player.AsyncPlayerPreLoginEvent;
 import net.minestom.server.event.player.PlayerDisconnectEvent;
+
+import java.util.concurrent.TimeUnit;
 
 public final class MinestomConnectionListener extends AbstractConnectionListener {
 
