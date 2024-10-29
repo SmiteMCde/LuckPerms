@@ -63,31 +63,25 @@ public final class MinestomConnectionListener extends AbstractConnectionListener
             exception.printStackTrace(System.err);
         }
 
-        Player player = event.getConnection().getPlayer();
-        if (player == null) {
-            this.plugin.getLogger().warn("Player is null for " + event.getGameProfile().uuid() + " - " + event.getGameProfile().name() + " - denying login.");
-            return;
-        }
-
         if (this.plugin.getConfiguration().get(ConfigKeys.DEBUG_LOGINS)) {
-            this.plugin.getLogger().info("Processing pre-login for " + player.getUuid() + " - " + player.getUsername());
+            this.plugin.getLogger().info("Processing pre-login for " + event.getGameProfile().uuid() + " - " + event.getGameProfile().name());
         }
 
-        if (!player.isOnline()) {
-            this.plugin.getLogger().info("Another plugin has cancelled the connection for " + player.getUuid() + " - " + player.getUsername() + ". No permissions data will be loaded.");
+        if (!event.getConnection().isOnline()) {
+            this.plugin.getLogger().info("Another plugin has cancelled the connection for " + event.getGameProfile().name() + " - " + event.getGameProfile().uuid() + ". No permissions data will be loaded.");
             return;
         }
 
         try {
-            User user = loadUser(player.getUuid(), player.getUsername());
-            recordConnection(player.getUuid());
-            this.plugin.getEventDispatcher().dispatchPlayerLoginProcess(player.getUuid(), player.getUsername(), user);
+            User user = loadUser(event.getGameProfile().uuid(), event.getGameProfile().name());
+            recordConnection(event.getGameProfile().uuid());
+            this.plugin.getEventDispatcher().dispatchPlayerLoginProcess(event.getGameProfile().uuid(), event.getGameProfile().name(), user);
         } catch (Exception ex) {
-            this.plugin.getLogger().severe("Exception occurred whilst loading data for " + player.getUuid() + " - " + player.getUsername(), ex);
+            this.plugin.getLogger().severe("Exception occurred whilst loading data for " + event.getGameProfile().uuid() + " - " + event.getGameProfile().name(), ex);
 
             Component reason = TranslationManager.render(Message.LOADING_DATABASE_ERROR.build());
-            player.kick(reason);
-            this.plugin.getEventDispatcher().dispatchPlayerLoginProcess(player.getUuid(), player.getUsername(), null);
+            event.getConnection().kick(reason);
+            this.plugin.getEventDispatcher().dispatchPlayerLoginProcess(event.getGameProfile().uuid(), event.getGameProfile().name(), null);
         }
     }
 
