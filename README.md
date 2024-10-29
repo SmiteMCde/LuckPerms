@@ -1,3 +1,5 @@
+# The original code related to LuckPerms on Minestom is from [LooFifteen/LuckPerms](https://github.com/LooFifteen/LuckPerms)
+
 ![](https://raw.githubusercontent.com/LuckPerms/branding/master/banner/banner.png "Banner")
 # LuckPerms
 [![Build Status](https://ci.lucko.me/job/LuckPerms/badge/icon)](https://ci.lucko.me/job/LuckPerms/)
