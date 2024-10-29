@@ -12,10 +12,10 @@ import net.luckperms.api.node.Node;
 import net.luckperms.api.platform.PlayerAdapter;
 import net.luckperms.api.util.Tristate;
 import net.minestom.server.entity.Player;
+import net.minestom.server.network.player.GameProfile;
 import net.minestom.server.network.player.PlayerConnection;
 import net.minestom.server.permission.Permission;
 import net.minestom.server.permission.PermissionVerifier;
-import net.minestom.server.utils.Unit;
 import org.checkerframework.checker.nullness.qual.NonNull;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
@@ -25,6 +25,7 @@ import org.jetbrains.annotations.Nullable;
  * This class is a simple example and is not intended for production use.
  * Every situation is different, and you should consider your own requirements when implementing permission handling.
  */
+@SuppressWarnings({"unused", "UnusedReturnValue"})
 public final class ExamplePlayer extends Player {
 
     private static final @NotNull MiniMessage MINI_MESSAGE = MiniMessage.miniMessage();
@@ -33,7 +34,7 @@ public final class ExamplePlayer extends Player {
     private final @NonNull PlayerAdapter<Player> playerAdapter;
 
     public ExamplePlayer(@NotNull LuckPerms luckPerms, @NotNull UUID uuid, @NotNull String username, @NotNull PlayerConnection playerConnection) {
-        super(uuid, username, playerConnection);
+        super(playerConnection, new GameProfile(uuid, username));
         this.luckPerms = luckPerms;
         this.playerAdapter = this.luckPerms.getPlayerAdapter(Player.class);
     }
