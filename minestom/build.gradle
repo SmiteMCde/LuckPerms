@@ -4,6 +4,10 @@ plugins {
     id "java-library"
 }
 
+// minestom requires java 21+
+sourceCompatibility = 21
+targetCompatibility = 21
+
 repositories {
     mavenCentral()
 }
