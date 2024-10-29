@@ -47,7 +47,7 @@ public final class MinestomServer {
 
         // set custom player provider (optional)
         ConnectionManager connectionManager = MinecraftServer.getConnectionManager();
-        connectionManager.setPlayerProvider((uuid, username, connection) -> new ExamplePlayer(luckPerms, uuid, username, connection));
+        connectionManager.setPlayerProvider((connection, gameProfile) -> new ExamplePlayer(luckPerms, gameProfile.uuid(), gameProfile.name(), connection));
 
         // set up Minestom
         InstanceContainer instance = MinecraftServer.getInstanceManager().createInstanceContainer();
@@ -62,12 +62,12 @@ public final class MinestomServer {
         // set custom chat handling (optional)
         eventNode.addListener(PlayerChatEvent.class, event -> {
             if (!(event.getPlayer() instanceof ExamplePlayer player)) return;
-            event.setChatFormat(e -> Component.text().append(
+            event.setFormattedMessage(Component.text().append(
                     player.getPrefix(),
                     player.getName(),
                     player.getSuffix(),
                     Component.text(": "),
-                    Component.text(e.getMessage())
+                    Component.text(event.getRawMessage())
             ).build());
         });
 
