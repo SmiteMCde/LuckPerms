@@ -41,6 +41,54 @@ compileJava {
 }
 
 java {
-    withJavadocJar()
     withSourcesJar()
+}
+
+publishing {
+    publications {
+        mavenJava(MavenPublication) {
+            artifactId = 'luckperms-minestom'
+
+            from components.java
+
+            pom {
+                name = 'LuckPerms Minestom'
+                description = 'A permissions plugin for Minestom servers.'
+                url = 'https://github.com/LooFifteen/LuckPerms'
+
+                licenses {
+                    license {
+                        name = 'MIT'
+                        url = 'https://opensource.org/licenses/MIT'
+                    }
+                }
+
+                developers {
+                    developer {
+                        id = 'lucko'
+                        name = 'Luck'
+                        url = 'https://lucko.me'
+                        email = 'git@lucko.me'
+                    }
+                    developer {
+                        id = 'LooFifteen'
+                        name = 'LU15'
+                        url = 'https://lu15.dev'
+                        email = 'luis@lu15.dev'
+                    }
+                }
+
+                scm {
+                    connection = 'scm:git:https://github.com/LooFifteen/LuckPerms.git'
+                    developerConnection = 'scm:git:git@github.com:LooFifteen/LuckPerms.git'
+                    url = 'https://github.com/LooFifteen/LuckPerms'
+                }
+
+                issueManagement {
+                    system = 'GitHub'
+                    url = 'https://github.com/LooFifteen/LuckPerms/issues'
+                }
+            }
+        }
+    }
 }

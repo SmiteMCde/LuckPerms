@@ -7,9 +7,12 @@ import org.gradle.api.tasks.testing.logging.TestLogEvent
 
 defaultTasks 'licenseFormat', 'build'
 
+version = '5.4-SNAPSHOT'
+
 subprojects {
     apply plugin: 'java'
     apply plugin: 'maven-publish'
+    apply plugin: 'signing'
     apply plugin: 'org.cadixdev.licenser'
 
     group = 'me.lucko.luckperms'
@@ -36,29 +39,9 @@ subprojects {
         from '../LICENSE.txt'
     }
 
-    def determinePatchVersion = {
-        try {
-            // get the name of the last tag
-            def tagInfo = new ByteArrayOutputStream()
-            exec {
-                commandLine 'git', 'describe', '--tags'
-                standardOutput = tagInfo
-            }
-            tagInfo = tagInfo.toString().trim()
-
-            if (!tagInfo.contains('-')) {
-                return 0
-            }
-            return tagInfo.split("-")[1]
-        } catch (Exception ignored) {
-            // Handle the exception and return a default patch version
-            return 0
-        }
-    }
-
     project.ext.majorVersion = '5'
     project.ext.minorVersion = '4'
-    project.ext.patchVersion = determinePatchVersion()
+    project.ext.patchVersion = '0'
     project.ext.apiVersion = project.ext.majorVersion + '.' + project.ext.minorVersion
     project.ext.fullVersion = project.ext.apiVersion + '.' + project.ext.patchVersion
 

@@ -75,7 +75,7 @@ dependencies {
     api 'com.github.ben-manes.caffeine:caffeine:2.9.0'
     api 'com.squareup.okhttp3:okhttp:3.14.9'
     api 'com.squareup.okio:okio:1.17.5'
-    api 'net.bytebuddy:byte-buddy:1.10.22'
+    api 'net.bytebuddy:byte-buddy:1.14.17'
 
     api('org.spongepowered:configurate-core:3.7.2') {
         transitive = false
@@ -99,4 +99,55 @@ dependencies {
     compileOnly 'org.mongodb:mongodb-driver-legacy:4.5.0'
     compileOnly 'org.postgresql:postgresql:42.6.0'
     compileOnly 'org.yaml:snakeyaml:1.28'
+}
+
+publishing {
+    repositories {
+        maven {
+            name = 'hyperaSnapshots'
+            url = 'https://repo.hypera.dev/snapshots/'
+            credentials(PasswordCredentials)
+        }
+    }
+
+    publications {
+        mavenJava(MavenPublication) {
+            artifactId = 'luckperms-common'
+
+            from components.java
+
+            pom {
+                name = 'LuckPerms Common'
+                description = 'A permissions plugin for Minecraft servers.'
+                url = 'https://luckperms.net'
+
+                licenses {
+                    license {
+                        name = 'MIT'
+                        url = 'https://opensource.org/licenses/MIT'
+                    }
+                }
+
+                developers {
+                    developer {
+                        id = 'lucko'
+                        name = 'Luck'
+                        url = 'https://lucko.me'
+                        email = 'git@lucko.me'
+                    }
+                }
+
+                scm {
+                    connection = 'scm:git:https://github.com/LooFifteen/LuckPerms.git'
+                    developerConnection = 'scm:git:git@github.com:LooFifteen/LuckPerms.git'
+                    url = 'https://github.com/LooFifteen/LuckPerms'
+                }
+
+                issueManagement {
+                    system = 'GitHub'
+                    url = 'https://github.com/LooFifteen/LuckPerms/issues'
+                }
+            }
+        }
+    }
 }
