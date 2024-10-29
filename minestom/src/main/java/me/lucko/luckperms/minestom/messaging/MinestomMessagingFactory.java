@@ -26,8 +26,8 @@ public final class MinestomMessagingFactory extends MessagingFactory<LPMinestomP
         if (messagingType.equals("pluginmsg") || messagingType.equals("bungee") || messagingType.equals("velocity")) {
             try {
                 return new LuckPermsMessagingService(getPlugin(), new PluginMessageMessengerProvider(this.eventNode));
-            } catch (Exception e) {
-                e.printStackTrace();
+            } catch (Exception exception) {
+                exception.printStackTrace(System.err);
             }
         }
 
