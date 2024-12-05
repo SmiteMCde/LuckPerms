@@ -32,6 +32,7 @@ import me.lucko.luckperms.common.model.User;
 import me.lucko.luckperms.common.verbose.event.CheckOrigin;
 import me.lucko.luckperms.neoforge.LPNeoForgeBootstrap;
 import me.lucko.luckperms.neoforge.LPNeoForgePlugin;
+import me.lucko.luckperms.neoforge.capabilities.UserCapabilityImpl;
 import net.luckperms.api.context.ImmutableContextSet;
 import net.luckperms.api.query.QueryMode;
 import net.luckperms.api.query.QueryOptions;
@@ -77,9 +78,12 @@ public class NeoForgePermissionHandler implements IPermissionHandler {
 
     @Override
     public <T> T getPermission(ServerPlayer player, PermissionNode<T> node, PermissionDynamicContext<?>... context) {
-        User user = plugin.getUserManager().getIfLoaded(player.getUUID());
-        if (user != null) {
-            QueryOptions queryOptions = plugin.getContextManager().getQueryOptions(player);
+        UserCapabilityImpl capability = UserCapabilityImpl.getNullable(player);
+
+        if (capability != null) {
+            User user = capability.getUser();
+            QueryOptions queryOptions = capability.getQueryOptionsCache().getQueryOptions();
+
             T value = getPermissionValue(user, queryOptions, node, context);
             if (value != null) {
                 return value;

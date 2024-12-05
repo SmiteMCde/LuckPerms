@@ -20,11 +20,11 @@ dependencies {
         exclude group: "org.spongepowered", module: "configurate-hocon"
         exclude group: "me.lucko.configurate", module: "configurate-toml"
     }
-    compileOnly "net.minestom:minestom-snapshots:ccea53ac44"
+    compileOnly "net.minestom:minestom-snapshots:1_21_2-ef84a1ffbf"
 
     // testing
     testImplementation project(":common")
-    testImplementation "net.minestom:minestom-snapshots:ccea53ac44"
+    testImplementation "net.minestom:minestom-snapshots:1_21_2-ef84a1ffbf"
     testImplementation "commons-net:commons-net:3.10.0" // fix vulnerability in minestom
     testImplementation "ch.qos.logback:logback-classic:1.4.14" // logger
     testImplementation "org.spongepowered:configurate-hocon:3.7.2" // configuration using hocon

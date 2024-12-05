@@ -81,18 +81,6 @@ public final class SchemaReader {
         return queries;
     }
 
-    public static String tableFromStatement(String statement) {
-        Matcher table = CREATE_TABLE_PATTERN.matcher(statement);
-        if (table.matches()) {
-            return table.group(1).toLowerCase(Locale.ROOT);
-        }
-        Matcher index = CREATE_INDEX_PATTERN.matcher(statement);
-        if (index.matches()) {
-            return index.group(1).toLowerCase(Locale.ROOT);
-        }
-        throw new IllegalArgumentException("Unknown statement type: " + statement);
-    }
-
     /**
      * Filters which statements should be executed based on the current list of tables in the database
      *
@@ -101,8 +89,16 @@ public final class SchemaReader {
      * @return the filtered list of statements
      */
     public static List<String> filterStatements(List<String> statements, List<String> currentTables) {
-        return statements.stream()
-                .filter(statement -> !currentTables.contains(tableFromStatement(statement)))
-                .collect(Collectors.toList());
+        return statements.stream().filter(statement -> {
+            Matcher table = CREATE_TABLE_PATTERN.matcher(statement);
+            if (table.matches()) {
+                return !currentTables.contains(table.group(1).toLowerCase(Locale.ROOT));
+            }
+            Matcher index = CREATE_INDEX_PATTERN.matcher(statement);
+            if (index.matches()) {
+                return !currentTables.contains(index.group(1).toLowerCase(Locale.ROOT));
+            }
+            throw new IllegalArgumentException("Unknown statement type: " + statement);
+        }).collect(Collectors.toList());
     }
 }

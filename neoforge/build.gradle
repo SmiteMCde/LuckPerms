@@ -26,6 +26,7 @@ neoForge {
 dependencies {
     add('shade', project(':common'))
     compileOnly project(':common:loader-utils')
+    compileOnly project(':neoforge:neoforge-api')
 }
 
 shadowJar {
